@@ -1,0 +1,85 @@
+.grid-container{
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: auto;
+  justify-items: start;
+}
+
+header .grid-container{
+  align-items: center;
+}
+
+header .header-top a.logo{
+  grid-column-start: 1;
+  grid-column-end: 3;
+  justify-self: center;
+  padding: 1em;
+}
+
+header .header-top nav{
+  grid-column-start: 3;
+  grid-column-end: 9;
+  width: 100%;
+}
+
+header .header-top nav ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  align-items: center;
+  justify-content: start;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+header .header-top nav ul a{
+  text-decoration: none;
+  color: gray;
+  font-weight: bold;
+}
+
+header .header-top .menu-login ul{
+  list-style: none;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+header .header-bottom{
+  background: #009900;
+}
+
+header .header-bottom p{
+  grid-column-start: 3;
+  color: white;
+  font-weight: bold;
+}
+
+main{
+  background:#F0F0F0;
+  grid-template-rows: 100%;
+}
+
+section.main_container{
+  margin: 2em 0;
+  padding: 3em;
+  grid-column-start: 2;
+  grid-column-end: 10;
+  background: white;
+  width: 100%;
+  border-radius: 4px;
+}
+
+/* Dashboard */
+
+section.dashboard{
+  display: flex;
+}
+
+article.dashboard-left{
+  width: 50%;
+}
+
+article.dashboard-right{
+  width: 50%;
+}
