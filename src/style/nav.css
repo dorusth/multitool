@@ -73,6 +73,6 @@ header .grid-container{
     text-transform: capitalize;
   }
 
-  .container_nav_horizontal ul li.active{
+  .container_nav_horizontal ul li.active, .container_nav_horizontal ul li:hover{
     border-bottom: 4px solid #009900;
   }

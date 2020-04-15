@@ -17,16 +17,34 @@ function App(){
 
   const [dataRecieved, setDataRecieved] = useState(false)
   const [profiles, setProfiles] = useState()
+  const [indexedProfiles, setIndexedProfiles] = useState()
   
   useEffect(() => {
     const fetchData = async () => {
       const db = firebase.firestore()
       const data = await db.collection("profiles").get()
       setProfiles(data.docs.map(doc => doc.data()))
+      let dataProcessed = data.docs.map(doc => doc.data())
+      let sets = {}
+      dataProcessed.map(item => {
+          let profileSets = item.levels.map(level =>{
+              let colorList = ["#57A634", "#FFC300", "#FF9900", "#FF3333", "#93117E"]
+              let levelColor = colorList[level.level-1]
+              return {
+                  key: level.level,
+                  label: level.level,
+                  color: levelColor,
+                  values: level
+              }
+          }) 
+          sets[item.profile] = profileSets.reverse()
+      });
+      setIndexedProfiles(sets);
       setDataRecieved(true)
     }
     fetchData()
   },[])
+
   
   return(
     <Router>
@@ -43,7 +61,7 @@ function App(){
               <Skills/>
             </Route>
             <Route path="/profiles">
-              <Profiles profiles={profiles} fetched={dataRecieved}/>
+              <Profiles profiles={profiles} fetched={dataRecieved} indexedProfiles={indexedProfiles}/>
             </Route>
             <Route path="/labs">
               <Labs/>

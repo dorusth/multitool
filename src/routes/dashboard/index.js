@@ -8,18 +8,18 @@ class Dashboard extends React.Component{
             currentProfile: "frontend",
             currentLevel: 1,
             currentVal:{
-                architectuur: 0,
-                testen: 0,
-                backend: 0,
-                cdci: 0,
-                cloud: 0,
-                dataengineering: 0,
-                databases: 0,
-                frontend: 0,
-                netwerk: 0,
-                securityprivacy: 0,
-                systemen: 0,
-                video: 0,}
+                architectuur: 1,
+                testen: 1,
+                backend: 1,
+                cdci: 1,
+                cloud: 1,
+                dataengineering: 1,
+                databases: 1,
+                frontend: 1,
+                netwerk: 1,
+                securityprivacy: 1,
+                systemen: 1,
+                video: 1}
         }
     }
 
@@ -39,7 +39,7 @@ class Dashboard extends React.Component{
     
     render(){        
         return(
-            <section className="dashboard container_full">
+            <section className="dashboard container_full container-content">
                 <article className="container-content_left">
                     <h1>Jouw skills</h1>
                 </article>
@@ -48,7 +48,7 @@ class Dashboard extends React.Component{
                         width={400}
                         height={400}
                         padding={100}
-                        domainMax={4}
+                        domainMax={5}
                         highlighted={null}
                         data={{
                             variables: [
