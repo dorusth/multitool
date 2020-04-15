@@ -26,8 +26,7 @@ function App(){
       setDataRecieved(true)
     }
     fetchData()
-  })
-  console.log("help");
+  },[])
   
   return(
     <Router>

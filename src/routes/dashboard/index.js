@@ -40,10 +40,10 @@ class Dashboard extends React.Component{
     render(){        
         return(
             <section className="dashboard container_full">
-                <article className="dashboard-left">
+                <article className="container-content_left">
                     <h1>Jouw skills</h1>
                 </article>
-                <article className="dashboard-right">
+                <article className="container-content_right">
                     <Radar
                         width={400}
                         height={400}
