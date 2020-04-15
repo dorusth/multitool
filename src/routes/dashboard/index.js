@@ -37,9 +37,9 @@ class Dashboard extends React.Component{
         this.setState({currentVal:data});
     }
     
-    render(){
+    render(){        
         return(
-            <section className="dashboard main_container">
+            <section className="dashboard container_full">
                 <article className="dashboard-left">
                     <h1>Jouw skills</h1>
                 </article>

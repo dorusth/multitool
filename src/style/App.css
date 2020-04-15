@@ -1,0 +1,43 @@
+@import './nav.css';
+
+.grid-container{
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: auto;
+  justify-items: start;
+}
+
+main{
+  background:#F0F0F0;
+  grid-template-rows: 100%;
+}
+
+.container_full{
+  margin: 2em 0;
+  padding: 3em;
+  grid-column-start: 2;
+  grid-column-end: 10;
+  background: white;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.container_full.with_subnav{
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Dashboard */
+
+section.dashboard{
+  display: flex;
+}
+
+article.dashboard-left{
+  width: 50%;
+}
+
+article.dashboard-right{
+  width: 50%;
+}

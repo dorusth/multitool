@@ -1,0 +1,78 @@
+/*general navigation*/
+nav .active, nav ul li:hover{
+    color: #009900;
+}
+
+nav ul{
+    list-style: none;
+}
+
+/*main heading*/
+header .grid-container{
+    align-items: center;
+  }
+  
+  header .header-top a.logo{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    justify-self: center;
+    padding: 1em;
+  }
+  
+  header .header-top nav{
+    grid-column-start: 3;
+    grid-column-end: 9;
+    width: 100%;
+  }
+  
+  header .header-top nav ul{
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: start;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+  
+  header .header-top nav ul a{
+    text-decoration: none;
+    color: gray;
+    font-weight: bold;
+  }
+  
+  header .header-top .menu-login ul{
+    list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  header .header-bottom{
+    background: #009900;
+  }
+  
+  header .header-bottom p{
+    grid-column-start: 3;
+    color: white;
+    font-weight: bold;
+  }
+
+
+  /*horizontal container nav*/
+
+  .container_nav_horizontal ul{
+    display: flex;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid lightgray;
+  }
+
+  .container_nav_horizontal ul li{
+    padding: 1em 2em;
+    font-weight: 900;
+    text-transform: capitalize;
+  }
+
+  .container_nav_horizontal ul li.active{
+    border-bottom: 4px solid #009900;
+  }
