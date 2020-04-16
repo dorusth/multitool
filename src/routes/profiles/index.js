@@ -27,22 +27,35 @@ function Profiles(props){
 
         useEffect(()=>{
             if(props.indexedProfiles){
-                setCurrentProfiles(props.indexedProfiles[props.profiles[0].profile]);
-                setCurrentName(props.profiles[0].profile)
+                let name = Object.keys(props.indexedProfiles)[0]
+                setCurrentName(name)
+                setCurrentProfiles(props.indexedProfiles[name]);
             }
-        },[props.indexedProfiles, props.profiles])
-
-    if(props.fetched===true){
+        },[props.indexedProfiles])
+    
+        let Tabs = ()=>{
+            let count = 0
+            let output = []
+            for (var property in props.indexedProfiles){
+                let key = count
+                let profile = property
+                output.push(<li key={key} className={(key===current ?"active" :"")} onClick={() =>{setCurrent(key); setCurrentName(profile); setCurrentProfiles(props.indexedProfiles[profile])}} >{profile}</li>)
+                count++
+            }
+            return output
+        }
+        console.log(current, currentName,currentProfiles);
+    if(props.indexedProfiles){
         return(
             <section className="container_full with_subnav">
                 <nav className="container_nav_horizontal">
                     <ul>
-                        {props.profiles.map((profile,key) => <li key={key} className={(key===current ?"active" :"")} onClick={() =>{setCurrent(key); setCurrentName(profile.profile); setCurrentProfiles(props.indexedProfiles[profile.profile])}} >{profile.profile}</li>)}
+                    <Tabs />
                     </ul>
                 </nav>
-                <div className="container-content">
+                <div className="container-content"> 
                     <div className="container-content_left">
-                        <div onMouseEnter={()=>{setCurrentProfiles([props.indexedProfiles[currentName][4]])}} onMouseLeave={()=>{setCurrentProfiles(props.indexedProfiles[currentName])}} className="profile-level-description basis" >
+                        <div onMouseEnter={(e)=>{setCurrentProfiles([props.indexedProfiles[currentName][4]])}} onMouseLeave={()=>{setCurrentProfiles(props.indexedProfiles[currentName])}} className="profile-level-description basis" >
                             <h3>Basis</h3>
                             <p>Je bent nieuwsgierig, geïnspireerd en intrinsiek gemotiveerd om dingen gedaan te krijgen. Je wil verbeteren. Werkt samen en zoekt de interactie op team niveau. Vraagt hulp indien nodig. Je bent respectvol, luistert goed, en bent open en transparant. Je handelt volgens de agile waarden en devops principes.</p>
                         </div>

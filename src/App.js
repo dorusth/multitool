@@ -15,9 +15,8 @@ import './style/App.css';
 
 function App(){
 
-  const [dataRecieved, setDataRecieved] = useState(false)
   const [profiles, setProfiles] = useState()
-  const [indexedProfiles, setIndexedProfiles] = useState()
+  const [indexedProfiles, setIndexedProfiles] = useState(false)
   
   useEffect(() => {
     const fetchData = async () => {
@@ -40,11 +39,9 @@ function App(){
           sets[item.profile] = profileSets.reverse()
       });
       setIndexedProfiles(sets);
-      setDataRecieved(true)
     }
     fetchData()
   },[])
-
   
   return(
     <Router>
@@ -52,7 +49,7 @@ function App(){
         <main className="grid-container">
           <Switch>
             <Route exact path="/">
-              <Dashboard profiles={profiles}/>
+              <Dashboard indexedProfiles={indexedProfiles}/>
             </Route>
             <Route path="/growth">
               <Growth/>
@@ -61,7 +58,7 @@ function App(){
               <Skills/>
             </Route>
             <Route path="/profiles">
-              <Profiles profiles={profiles} fetched={dataRecieved} indexedProfiles={indexedProfiles}/>
+              <Profiles indexedProfiles={indexedProfiles}/>
             </Route>
             <Route path="/labs">
               <Labs/>

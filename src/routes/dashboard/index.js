@@ -1,43 +1,24 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Radar from 'react-d3-radar';
 
-class Dashboard extends React.Component{
-    constructor(props){
-        super(props)
-        this.state={
-            currentProfile: "frontend",
-            currentLevel: 1,
-            currentVal:{
-                architectuur: 1,
-                testen: 1,
-                backend: 1,
-                cdci: 1,
-                cloud: 1,
-                dataengineering: 1,
-                databases: 1,
-                frontend: 1,
-                netwerk: 1,
-                securityprivacy: 1,
-                systemen: 1,
-                video: 1}
+function Dashboard(props){
+    const [currentProfile, setCurrentProfile] = useState("frontend")
+    const [currentLevel, setCurrentLevel] = useState("1")
+    const [currentVal, setCurrentVal] = useState({
+        key: "basis",
+        label: "Basis",
+        color: '#009900',
+        values: {}
+    })
+
+    useEffect(()=>{
+        if(props.indexedProfiles){
+            let data = props.indexedProfiles[currentProfile].filter(item => item.key === currentLevel)
+            setCurrentVal(data[0])
         }
-    }
+    },[currentProfile, currentLevel, props.fetched])
 
-    changeCurrentProfile(e){
-        this.setState({currentProfile: e.target.value}, this.reRenderMap)
-    }
-
-    changeCurrentLevel(e){
-        this.setState({currentLevel: e.target.value}, this.reRenderMap)
-    }
-
-    reRenderMap(){
-        let profile = this.props.profiles.find(element => element.profile === this.state.currentProfile)        
-        let data = profile.levels.find(element => element.level === this.state.currentLevel.toString())
-        this.setState({currentVal:data});
-    }
-    
-    render(){        
+    if(props.indexedProfiles){
         return(
             <section className="dashboard container_full container-content">
                 <article className="container-content_left">
@@ -66,23 +47,18 @@ class Dashboard extends React.Component{
                                 { key: "video", label: "Video" },
                             ],
                             sets: [
-                            {
-                                key: "basis",
-                                label: "Basis",
-                                color: '#009900',
-                                values: this.state.currentVal
-                            }
+                                currentVal
                             ]
                         }}
                     />
                     <form>
-                        <select onChange={this.changeCurrentProfile.bind(this)} name="profiles" id="profiles">
-                            <option value="system">System</option>
+                        <select onChange={(e)=>{setCurrentProfile(e.target.value)}} value={currentProfile} name="profiles" id="profiles">
                             <option value="frontend">Frontend</option>
+                            <option value="system">System</option>
                             <option value="backend">backend</option>
                             <option value="video">Video</option>
                         </select>
-                        <select onChange={this.changeCurrentLevel.bind(this)} name="Level" id="level">
+                        <select onChange={(e)=>{setCurrentLevel(e.target.value)}} value={currentLevel} name="Level" id="level">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -93,6 +69,8 @@ class Dashboard extends React.Component{
                 </article>
             </section>
         )
+    }else{
+        return <p>Loading....</p>
     }
 }
 
