@@ -39,6 +39,9 @@ function Header() {
               <Route path="/labs">
                 <p>Learning Labs</p>
               </Route>
+              <Route path="/onBoarding">
+                <p>Introduction</p>
+              </Route>
             </Switch>
           </div>
         </header>

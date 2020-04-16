@@ -1,5 +1,5 @@
 import React , { useState, useEffect } from 'react';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import firebase from './firebase'
 
 import Dashboard from './routes/dashboard'
@@ -7,6 +7,7 @@ import Growth from './routes/growth'
 import Labs from './routes/labs'
 import Profiles from './routes/profiles'
 import Skills from './routes/skills'
+import Onboarding from './routes/onboarding'
 
 import Header from './global_components/header';
 
@@ -14,7 +15,6 @@ import './style/App.css';
 
 
 function App(){
-
   const [profiles, setProfiles] = useState()
   const [indexedProfiles, setIndexedProfiles] = useState(false)
   
@@ -62,6 +62,12 @@ function App(){
             </Route>
             <Route path="/labs">
               <Labs/>
+            </Route>
+            <Route path="/onboarding">
+              <Onboarding />
+            </Route>
+            <Route path="*">
+              <Redirect to="/" />
             </Route>
           </Switch>
         </main>
