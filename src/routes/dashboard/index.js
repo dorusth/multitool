@@ -16,7 +16,7 @@ function Dashboard(props){
             let data = props.indexedProfiles[currentProfile].filter(item => item.key === currentLevel)
             setCurrentVal(data[0])
         }
-    },[currentProfile, currentLevel, props.fetched])
+    },[currentProfile, currentLevel, props.fetched, props.indexedProfiles])
 
     if(props.indexedProfiles){
         return(

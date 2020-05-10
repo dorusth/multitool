@@ -1,7 +1,20 @@
-button.primary{
+button{
+    padding: .7em 2em;
+    margin: 1em;
+    border-radius: 25px;
+    min-width: 12em;
+    text-align: center;
+}
 
+button.primary{
+    background-color: #0077cc;
+    color:white;
+    border:none;
 }
 
 button.secondary{
+    color: #0077cc;
+    background-color:white;
+    border: 1px solid #0077cc;
     
 }

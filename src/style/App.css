@@ -1,10 +1,17 @@
 @import './nav.css';
 @import './chart.css';
+@import './buttons.css';
 
 h1{
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 2em;
+  color: #009900;
+}
+
+h3{
+  font-size: 1.5em;
+  font-weight: lighter;
   color: #009900;
 }
 
