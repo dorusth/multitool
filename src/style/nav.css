@@ -60,6 +60,10 @@ header .grid-container{
 
   /*horizontal container nav*/
 
+  .container_nav_horizontal{
+    margin-bottom: 1em;
+  }
+
   .container_nav_horizontal ul{
     display: flex;
     padding: 0;

@@ -1,6 +1,18 @@
 @import './nav.css';
 @import './chart.css';
 
+h1{
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 2em;
+  color: #009900;
+}
+
+p{
+  font-size: 1.2em;
+  line-height: 140%;
+}
+
 .grid-container{
   display: grid;
   grid-template-columns: repeat(10, 1fr);
@@ -39,6 +51,10 @@ main{
 
 .container-content_left{
   width: 50%;
+}
+
+.container-content_left p{
+  max-width: 35em;
 }
 
 .container-content_right{

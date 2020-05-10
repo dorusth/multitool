@@ -15,14 +15,14 @@ import './style/App.css';
 
 
 function App(){
-  const [profiles, setProfiles] = useState()
+  //const [profiles, setProfiles] = useState()
   const [indexedProfiles, setIndexedProfiles] = useState(false)
   
   useEffect(() => {
     const fetchData = async () => {
       const db = firebase.firestore()
       const data = await db.collection("profiles").get()
-      setProfiles(data.docs.map(doc => doc.data()))
+      //setProfiles(data.docs.map(doc => doc.data()))
       let dataProcessed = data.docs.map(doc => doc.data())
       let sets = {}
       dataProcessed.map(item => {

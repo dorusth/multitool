@@ -9,16 +9,16 @@ function Header() {
             <nav>
                 <ul>
                     <Link to="/"><li>Overview</li></Link>
-                    <Link to="/growth"><li>Persoonlijke Groei</li></Link>
-                    <Link to="/skills"><li>Skills</li></Link>
+                    <Link to="/"><li>Persoonlijke Groei</li></Link>
+                    <Link to="/"><li>Skills</li></Link>
                     <Link to="/profiles"><li>Profielen</li></Link>
-                    <Link to="/labs"><li>Learning Labs</li></Link>
+                    <Link to="/"><li>Learning Labs</li></Link>
                 </ul>
             </nav>
             <div className="menu-login">
               <ul>
                 <li>username</li> |
-                <Link to="#"><li>Uitloggen</li></Link>
+                <Link to="/onboarding"><li>Uitloggen</li></Link>
               </ul>        
             </div>
           </div>
